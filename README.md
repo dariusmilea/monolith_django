@@ -34,5 +34,5 @@ make up
 make install
 make makemigrations
 make migrate
-make run
+make uvicorn-run
 ```
