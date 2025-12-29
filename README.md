@@ -32,7 +32,6 @@ For this we use the second app which allows users to authenticate and get a JWT 
 cp .env.example .env
 make up
 make install
-make makemigrations
 make migrate
-make uvicorn-run
+make run-uvicorn
 ```

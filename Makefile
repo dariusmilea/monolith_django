@@ -43,10 +43,10 @@ test-watch:
 
 # --- Django management ---
 .PHONY: run
-dj-run:
+run-django:
 	$(MANAGE) runserver
 
-uvicorn-run:
+run-uvicorn:
 	$(PYTHON) src/run_uvicorn.py
 
 .PHONY: migrate
