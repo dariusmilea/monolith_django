@@ -2,7 +2,7 @@
 
 # Default environment variables
 PYTHON := uv run python
-MANAGE := $(PYTHON) manage.py
+MANAGE := $(PYTHON) src/manage.py
 COMPOSE_FILE=deployment/local/docker-compose.yml
 ENV_FILE=.env
 
@@ -43,8 +43,11 @@ test-watch:
 
 # --- Django management ---
 .PHONY: run
-run:
+dj-run:
 	$(MANAGE) runserver
+
+uvicorn-run:
+	$(PYTHON) src/run_uvicorn.py
 
 .PHONY: migrate
 migrate:

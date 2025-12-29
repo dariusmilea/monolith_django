@@ -29,5 +29,10 @@ For this we use the second app which allows users to authenticate and get a JWT 
 ## How to deploy locally
 
 ```commandline
-cp ./deployment/.env.example ./deployment/.env
+cp .env.example .env
+make up
+make install
+make makemigrations
+make migrate
+make run
 ```

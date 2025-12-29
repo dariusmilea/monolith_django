@@ -19,6 +19,8 @@ POSTGRES_USER = config("POSTGRES_USER")
 POSTGRES_PASSWORD = config("POSTGRES_PASSWORD")
 POSTGRES_PORT = config("POSTGRES_PORT")
 POSTGRES_HOST = config("POSTGRES_HOST")
+API_HOST = config("API_HOST")
+API_PORT = config("API_PORT", cast=int)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -45,6 +47,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "pets",
+    "jwt_roles",
     "rest_framework",
 ]
 
