@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ..models.pet_model import PetModel
+from pets.models import PetModel
 
 
 class PetSerializer(serializers.ModelSerializer):

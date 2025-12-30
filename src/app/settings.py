@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+from datetime import timedelta
 from pathlib import Path
 from decouple import config
 
@@ -21,6 +22,8 @@ POSTGRES_PORT = config("POSTGRES_PORT")
 POSTGRES_HOST = config("POSTGRES_HOST")
 API_HOST = config("API_HOST")
 API_PORT = config("API_PORT", cast=int)
+JWT_SIGNING_KEY = config("JWT_SIGNING_KEY")
+JWT_EXPIRATION_TIME = config("JWT_EXPIRATION_TIME", cast=int)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -137,8 +140,13 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": ("rest_framework_simplejwt.authentication.JWTAuthentication",),
+APPEND_SLASH = False
+
+SIMPLE_JWT = {
+    "SIGNING_KEY": JWT_SIGNING_KEY,
+    "ALGORITHM": "HS256",
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=JWT_EXPIRATION_TIME),
+    "AUTH_HEADER_TYPES": ("Bearer",),
 }
 
-AUTH_USER_MODEL = "accounts.UserModel"
+REST_FRAMEWORK = {"DEFAULT_AUTHENTICATION_CLASSES": ("accounts.services.JWTAuthenticationService",)}

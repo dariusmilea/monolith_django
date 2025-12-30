@@ -1,8 +1,7 @@
 from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated
-from ..permissions.pets_permission import PetsPermission
-from ..models.pet_model import PetModel
-from ..serializers.pet_serializer import PetSerializer
+from pets.permissions import PetsPermission
+from pets.models import PetModel
+from pets.serializers import PetSerializer
 
 
 class PetsListView(generics.ListCreateAPIView):
@@ -10,7 +9,6 @@ class PetsListView(generics.ListCreateAPIView):
     serializer_class = PetSerializer
 
     permission_classes = [
-        IsAuthenticated,
         PetsPermission,
     ]
 
@@ -20,6 +18,5 @@ class PetUpdateDestroyRetrieveView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PetSerializer
 
     permission_classes = [
-        IsAuthenticated,
         PetsPermission,
     ]

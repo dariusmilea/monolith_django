@@ -1,0 +1,13 @@
+from django.contrib.auth.hashers import make_password, check_password
+from accounts.models import UserModel
+
+
+def create_user(email: str, password: str):
+    return UserModel.objects.create(
+        email=email,
+        password_hash=make_password(password),
+    )
+
+
+def verify_password(user: UserModel, raw_password: str) -> bool:
+    return check_password(raw_password, user.password_hash)
