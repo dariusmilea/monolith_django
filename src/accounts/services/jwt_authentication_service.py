@@ -33,6 +33,6 @@ class JWTAuthenticationService(BaseAuthentication):
         try:
             user = UserModel.objects.get(id=user_id, is_active=True)
         except UserModel.DoesNotExist:
-            raise AuthenticationFailed("User not found")
+            raise AuthenticationFailed("Invalid token payload")
 
         return (user, payload)
