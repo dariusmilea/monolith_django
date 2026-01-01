@@ -4,6 +4,10 @@ from accounts.services import create_user
 
 
 class RegisterSerializer(serializers.Serializer):
+    """
+    Serializer for user registration.
+    """
+
     email = serializers.EmailField()
     password = serializers.CharField(min_length=8, write_only=True)
 

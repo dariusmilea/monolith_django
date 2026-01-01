@@ -3,6 +3,10 @@ from accounts.models import UserModel
 
 
 class UserSerializer(serializers.ModelSerializer):
+    """
+    For admins only - Serializer for user API operations.
+    """
+
     class Meta:
         model = UserModel
         fields = [

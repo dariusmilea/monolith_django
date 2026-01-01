@@ -4,6 +4,12 @@ from datetime import datetime, timezone
 
 
 def create_access_token(user):
+    """
+    Create a JWT access token for the given user.
+
+    We use the rest_framework_simplejwt TokenBackend to encode the token for a more caveman implementation.
+    The token contains the user ID as 'sub', user permissions.
+    """
     backend = TokenBackend(
         algorithm=settings.SIMPLE_JWT["ALGORITHM"],
         signing_key=settings.SIMPLE_JWT["SIGNING_KEY"],

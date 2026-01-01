@@ -3,6 +3,10 @@ import uuid
 
 
 class UserModel(models.Model):
+    """
+    User DB model used for authentication and authorization.
+    """
+
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     email = models.EmailField()
     is_active = models.BooleanField(default=True)

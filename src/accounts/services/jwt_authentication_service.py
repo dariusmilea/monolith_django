@@ -7,9 +7,20 @@ from accounts.models import UserModel
 
 
 class JWTAuthenticationService(BaseAuthentication):
+    """
+    API Authentication class using JWT tokens.
+    """
+
     keyword = "Bearer"
 
     def authenticate(self, request):
+        """
+        Authenticate the user using a JWT token.
+
+        It uses the rest_framework_simplejwt TokenBackend to decode and verify the token.
+        Based on the settings defined in settings.SIMPLE_JWT.
+        It also makes sure the user exists and is active.
+        """
         header = request.headers.get("Authorization")
         if not header or not header.startswith(self.keyword + " "):
             return None

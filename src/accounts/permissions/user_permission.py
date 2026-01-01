@@ -2,6 +2,10 @@ from rest_framework.permissions import BasePermission
 
 
 class IsStaffUser(BasePermission):
+    """
+    Permissions controll class which checks if the user is a staff user.
+    """
+
     message = "Only staff users are allowed to perform this action."
 
     def has_permission(self, request, view):

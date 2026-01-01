@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "7588992c-5efa-40d8-939e-94f532ea2b4b",
+		"name": "Pets API",
+		"description": "Api collection for the django monolith app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "43779229",
+		"_collection_link": "https://darius-5832863.postman.co/workspace/fd990942-a84f-4db5-84fb-e11b0294a78f/collection/43779229-7588992c-5efa-40d8-939e-94f532ea2b4b?action=share&source=collection_link&creator=43779229"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{$randomEmail}}\",\n    \"password\": \"test1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "127.0.0.1:8000/api/auth/register/",
+						"description": "Create a new user"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"Aiyana76@yahoo.com\",\n    \"password\":\"test1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "127.0.0.1:8000/api/auth/login/",
+						"description": "Login a user"
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Get Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmM2QwYmY2Mi04N2FhLTQzMjktYmNmYS05MDdkOTA2YjE0NWMiLCJwZXJtaXNzaW9ucyI6WyJwZXRzLmdldCIsInBldHMudXBkYXRlIiwicGV0cy5kZWxldGUiXSwiZXhwIjoxNzY3MTgyODI5LCJpYXQiOjE3NjcxODE5MjksInR5cGUiOiJhY2Nlc3MifQ.52mBWJXADKjQp5vkGc0WwotUEiuT6VhjLVNFqBgFjaM"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "127.0.0.1:8000/api/auth/admin/users/",
+						"description": "As an admin user get users.\n\nAll other operations such as POST (create), PUT (update), DELETE (destroy) are allowed for admin users"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "List Pets",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmM2QwYmY2Mi04N2FhLTQzMjktYmNmYS05MDdkOTA2YjE0NWMiLCJwZXJtaXNzaW9ucyI6WyJwZXRzLmdldCIsInBldHMuY3JlYXRlIiwicGV0cy51cGRhdGUiLCJwZXRzLmRlbGV0ZSJdLCJleHAiOjE3NjcxMDI3NjksImlhdCI6MTc2NzEwMTg2OSwidHlwZSI6ImFjY2VzcyJ9.AlhZNL_CjLvW38IgYZ0iSljhZeZi4sDq5p4VhwnrSec"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "127.0.0.1:8000/api/pets/",
+				"description": "List Pets"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Pet",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmM2QwYmY2Mi04N2FhLTQzMjktYmNmYS05MDdkOTA2YjE0NWMiLCJwZXJtaXNzaW9ucyI6WyJwZXRzLmdldCIsInBldHMudXBkYXRlIiwicGV0cy5kZWxldGUiXSwiZXhwIjoxNzY3MTAyOTg4LCJpYXQiOjE3NjcxMDIwODgsInR5cGUiOiJhY2Nlc3MifQ.GZl0Vkawd1IxTZgVFuPLi6o7OlGgaHaF3R03Z1yDXLs"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Boba\",\n    \"age\":1,\n    \"type\":\"Hamster\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "127.0.0.1:8000/api/pets/"
+			},
+			"response": []
+		}
+	]
+}
