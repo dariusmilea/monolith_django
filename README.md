@@ -30,6 +30,10 @@ For this we use the second app which allows users to authenticate and get a JWT 
 
 ## How to deploy locally
 
+0. Make sure you have all pre-requisites installed
+- UV
+- Docker
+
 1. Create a .env file based on the example
 
 ```commandline

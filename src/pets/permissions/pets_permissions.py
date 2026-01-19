@@ -1,20 +1,18 @@
 from rest_framework.permissions import BasePermission
 
-METHOD_PERMISSION_MAP = {
-    """Mapping of HTTP methods to required permissions."""
-    "GET": "pets.get",
-    "POST": "pets.create",
-    "PUT": "pets.update",
-    "PATCH": "pets.update",
-    "DELETE": "pets.delete",
-}
-
 
 class PetsPermission(BasePermission):
     """
     Permissions control class for pet-related API operations.
     """
 
+    method_permission_map = {
+        "GET": "pets.get",
+        "POST": "pets.create",
+        "PUT": "pets.update",
+        "PATCH": "pets.update",
+        "DELETE": "pets.delete",
+    }
     message = "You do not have permission to perform this action."
 
     def has_permission(self, request, _):
@@ -28,5 +26,5 @@ class PetsPermission(BasePermission):
 
         permissions = token.get("permissions", [])
 
-        required = METHOD_PERMISSION_MAP.get(request.method)
+        required = self.method_permission_map.get(request.method)
         return required in permissions
