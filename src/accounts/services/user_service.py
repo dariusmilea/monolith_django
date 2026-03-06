@@ -1,6 +1,7 @@
 from django.contrib.auth.hashers import make_password, check_password
 from accounts.models import UserModel
 
+#TODO: Use mypy
 
 def create_user(email: str, password: str):
     """

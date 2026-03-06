@@ -6,6 +6,7 @@ from accounts.services import create_access_token
 
 
 class LoginView(APIView):
+    #TODO: Add docstrings
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)

@@ -6,6 +6,7 @@ from accounts.serializers import RegisterSerializer
 
 
 class RegisterView(APIView):
+    #TODO: Add docstrings
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)

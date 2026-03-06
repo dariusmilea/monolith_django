@@ -22,5 +22,5 @@ def create_access_token(user):
         "iat": datetime.now(tz=timezone.utc),
         "type": "access",
     }
-
+    #TODO: Replace magic strings with constants
     return backend.encode(payload)

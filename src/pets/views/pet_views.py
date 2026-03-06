@@ -3,7 +3,6 @@ from pets.permissions import PetsPermission
 from pets.models import PetModel
 from pets.serializers import PetSerializer
 
-
 class PetsListView(generics.ListCreateAPIView):
     queryset = PetModel.objects.all()
     serializer_class = PetSerializer
@@ -11,6 +10,9 @@ class PetsListView(generics.ListCreateAPIView):
     permission_classes = [
         PetsPermission,
     ]
+
+    #TODO: Add input validation
+    #TODO: Add pagination
 
 
 class PetUpdateDestroyRetrieveView(generics.RetrieveUpdateDestroyAPIView):
@@ -20,3 +22,5 @@ class PetUpdateDestroyRetrieveView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [
         PetsPermission,
     ]
+
+    #TODO: Add input validation

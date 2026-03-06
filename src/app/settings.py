@@ -36,9 +36,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True #TODO: Set based on ENVIRONMENT env value
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [] #TODO: Set CORS
 
 
 # Application definition
@@ -150,3 +150,5 @@ SIMPLE_JWT = {
 }
 
 REST_FRAMEWORK = {"DEFAULT_AUTHENTICATION_CLASSES": ("accounts.services.JWTAuthenticationService",)}
+
+#TODO: Add global exception handling
