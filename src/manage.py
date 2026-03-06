@@ -4,6 +4,16 @@
 import os
 import sys
 
+#TODO: Add logging
+#TODO: Add global exception handling
+#TODO: Add type hints
+#TODO: Add docstrings
+#TODO: Add unit tests
+#TODO: Add API versioning
+#TODO: Add database connection pooling (in functie de setare: pool sau single client)
+#TODO: Add caching (in functie de setare: redis sau in-memory)
+#TODO: Add soft deletes for all entities
+
 
 def main():
     """Run administrative tasks."""
